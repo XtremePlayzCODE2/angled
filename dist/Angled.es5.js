@@ -1,6 +1,6 @@
 (function (factory, global) {
   // We're in a Web environment.
-  if (global instanceof window) {
+  if (global === window) {
     var AngledWindowEnvironment = factory(global, 0);
     AngledWindowEnvironment.HandleInternalDefinition();
   } else if (typeof module !== `undefined` && typeof module.exports !== `undefined`) {
