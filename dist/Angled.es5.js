@@ -14,4 +14,4 @@
   }
 })(function (scope, platform) {
   
-}, this instanceof window ? window : this);
+}, this === window ? window : this);
