@@ -1,0 +1,33 @@
+{
+  "name": "angled",
+  "version": "1.3.0",
+  "description": "A fork of Angular (4.1.0) to provide an easier API, better Material Design, and attempt to add a zero-HTML service where all elements are controlled by Angled itself.",
+  "main": "AngledExample.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node AngledTesting.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XtremePlayzCODE/angled.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "angular-material",
+    "angular4",
+    "build",
+    "javascript",
+    "angled",
+    "js",
+    "material-design"
+  ],
+  "author": "XtremePlayzCODE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XtremePlayzCODE/angled/issues"
+  },
+  "homepage": "https://github.com/XtremePlayzCODE/angled#readme"
+}
