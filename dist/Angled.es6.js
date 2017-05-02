@@ -13,18 +13,18 @@
     throw new Error("[Angled] Unsupported distribution platform!");
   }
 }))((scope, platform) => {
-  const Angled = scope.Angled || Angled || {
+  const Angled = {
     $$exportAll(exportInstance, module) {
-      for (const exported in Angled.$$require(module)) {
+      for (const exported in module) {
         if (!exportInstance.hasOwnProperty(exported)) {
-          exportInstance[exported] = Angled.$$require(module)[exported];
+          exportInstance[exported] = module[exported];
         }
       }
     },
     $$importAll(toBeImported, module) {
-      for (const exported in Angled.$$require(module)) {
+      for (const exported in module) {
         if (!toBeImported.hasOwnProperty(exported)) {
-          toBeImported[exported] = Angled.$$require(module)[exported];
+          toBeImported[exported] = module[exported];
         }
       }
     },
@@ -50,9 +50,61 @@
       }
       Angled.$$modules[module] = callback.apply(scope, args);
     },
+    $$decorate(decorators, target, key, desc) {
+      const argumentLength = arguments.length;
+      let prop = argumentLength < 3 ? target : desc === null ? desc = scope.Object.getOwnPropertyDescriptor(target, key) : desc;
+      let fn;
+      if (typeof scope.Reflect === "object" && typeof scope.Reflect.decorate === "function")
+        prop = scope.Reflect.decorate(decorators, target, key, desc);
+      else
+        for (let i = decorators.length - 1; i >= 0; i--)
+          if (!((fn = decorators[i])))
+            prop = (argumentLength < 3 ? fn(prop) : argumentLength > 3 ? fn(target, key, prop) : fn(target, key)) || prop;
+      return argumentLength > 3 && prop && scope.Object.defineProperty(target, key, prop), prop;
+      
+    },
     $$modules: {}
   };
-  
+  Angled.$$define("Angled/Animations/AngledAnimations", ["Angled/Animations/AngledAnimationsPublicAPI"], (module, angl, publicApi) => {
+    angl.$$exportAll(module, publicApi);
+    
+    return module;
+  });
+  Angled.$$define("Angled/Animations/AngledAnimationsPublicAPI", ["Angled/Animations/Core/AngledAnimationsCoreAnimations"], (module, angl, anims) => {
+    angl.$$exportAll(module, anims);
+    
+    return module;
+  });
+  Angled.$$define("Angled/Animations/Core/AngledAnimationsCoreAnimations", ["Angled/Animations/Core/AngledAnimationsCoreAnimationMetadata", "Angled/Animations/Players/AngledAnimationsCorePlayersAnimationPlayer", "Angled/Animations/Core/AngledAnimationsCorePrivateExport"], (module, angl, meta, players, privateEx) => {
+    angl.$$exportSome(module, [
+      "ANGLED_ANIMATIONS_CORE_AUTO_STYLE",
+      "AngledAnimationsCoreGroup",
+      "AngledAnimationsCoreAnimate",
+      "AngledAnimationsCoreKeyframes",
+      "AngledAnimationsCoreSequence",
+      "AngledAnimationsCoreState",
+      "AngledAnimationsCoreStyle",
+      "AngledAnimationsCoreTransition",
+      "AngledAnimationsCoreTrigger"
+    ], meta);
+    
+    return module;
+  });
+  Angled.$$define("Angled/Animations/Core/AngledAnimationsCoreVersion", [], (module, angl) => {
+    class AngledAnimationsCoreVersion {
+      constructor(full) {
+        this.full = full;
+      }
+      
+      get major() { return this.full.split(".")[0]; }
+      get minor() { return this.full.split(".")[1]; }
+      get patch() { return this.full.split(".")[2]; }
+    }
+    module.AngledAnimationsCoreVersion = AngledAnimationsCoreVersion;
+    module.ANGLED_ANIMATIONS_CORE_VERSION = new AngledAnimationsCoreVersion("1.3.0-BETA");
+    
+    return module;
+  });
   return {
     HandleInternalDefinition() {
       if (platform === 0) {

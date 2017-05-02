@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- A reference for Angled component development to correctly style components found in Bootstrap -->
+    <h1 style="font-family: Arial; padding: 2px;">
+      Dropdowns
+    </h1>
+
+    <style>
+      x-dropdown {
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+      }
+      
+      .dropdown-button {
+        float: left;
+        color: #333333;
+        background-color: #FFFFFF;
+        border-color: #CCCCCC;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-family: inherit;
+        overflow: visible;
+        text-transform: none;
+        margin: 0;
+        font: inherit;
+      }
+      .dropdown-caret {
+        margin-left: 0;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        vertical-align: middle;
+      }
+    </style>
+
+    <x-dropdown>
+      <button class="dropdown-button">
+        <span class="dropdown-caret">
+        
+        </span>
+      </button>
+    </x-dropdown>
+    
+  </body>
+</html>
