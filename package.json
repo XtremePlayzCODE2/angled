@@ -29,5 +29,17 @@
   "bugs": {
     "url": "https://github.com/XtremePlayzCODE/angled/issues"
   },
+  "devDependencies": {
+    "rollup": "0.41.6",
+    "babel-core": "latest",
+    "uglify-js": "latest",
+    "lebab": "latest"
+  },
+  "dependencies": {
+    "rollup": "0.41.6",
+    "babel-core": "latest",
+    "uglify-js": "latest",
+    "lebab": "latest"
+  },
   "homepage": "https://github.com/XtremePlayzCODE/angled#readme"
 }
