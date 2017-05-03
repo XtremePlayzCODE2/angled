@@ -10,8 +10,8 @@ export {
   AngledAnimationsCoreTrigger
 } from "./AngledAnimationsCoreAnimationMetadata";
 export {
-  AngledAnimationsCoreAnimationPlayer,
-  AngledAnimationsCoreNoopAnimationPlayer
+  AngledAnimationsCorePlayersAnimationPlayer,
+  AngledAnimationsCorePlayersNoopAnimationPlayer
 } from './Players/AngledAnimationsCorePlayersAnimationPlayer';
 export * from './AngledAnimationsCorePrivateExport';
 // That was a handful to type, please 1.4.0, allow me to not have to get carpal tunnel surgery.

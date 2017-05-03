@@ -1,9 +1,9 @@
-import { AngledAnimationsCoreScheduleMicroTask } from '../AngledAnimationsCoreUtilities';
+import { AngledAnimationsCoreUtilitiesScheduleMicroTask } from '../AngledAnimationsCoreUtilities';
 export class AngledAnimationsCorePlayersAnimationPlayer {
   get parentPlayer() { throw new Error("[Angled] NOT IMPLEMENTED: Base Classs") }
   set parentPlayer(player) { throw new Error("[Angled] NOT IMPLEMENTED: Base Class") }
 }
-export class AngledAniationsCorePlayersNoopAnimationPlayer {
+export class AngledAnimationsCorePlayersNoopAnimationPlayer {
   constructor() {
     this._onDoneFns = [];
     this._onStartFns = [];
@@ -30,7 +30,7 @@ export class AngledAniationsCorePlayersNoopAnimationPlayer {
   init() { /* Intentionally blank */ }
   play() {
     if (!this.hasStarted()) {
-      AngledAnimationsCoreScheduleMicroTask(() => this._onFinish());
+      AngledAnimationsCoreUtilitiesScheduleMicroTask(() => this._onFinish());
       this._onStart();
     }
     this._started = true;
